@@ -33,3 +33,15 @@ else if(backgroundB.transform.position.x + widthB.sprite.bounds.size.x < myCamer
 Nota: En el código aparece la velocidad de scroll en el eje Y, pero no la usamos.
 
 ![gif](./GIF/sceneSol3.gif)
+
+## Fondo con efecto parallax. El efecto empieza cuando el jugador empieza a moverse, esto se debe comunicar mediante eventos.
+
+->
+
+![gif](./GIF/parallax.gif)
+
+## Utilizar la técnica de pool de objetos para ir creando elementos en el juego que el jugador irá recolectando.
+
+->
+
+![gif](./GIF/pool.gif)
