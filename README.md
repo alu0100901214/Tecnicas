@@ -37,7 +37,9 @@ Nota: En el código aparece la velocidad de scroll en el eje Y, pero no la usamo
 ## Fondo con efecto parallax. El efecto empieza cuando el jugador empieza a moverse, esto se debe comunicar mediante eventos.
 
 -> Creamos un delegado con dos eventos, OnMove y OnStop, el primero se activa cuando el personaje se mueve y el segundo cuando el personaje para.
+
 -> Ambos activan el movimiento del parallax background y se le pasa un parámetro para saber cuando el personaje se mueve a la izquierda o a la derecha.
+
 -> El parallax Background contiene 4 quads cuyas texturas se mueven a diferente velocidad segun la capa en la que se encuentran.
 
 ![gif](./GIF/parallax.gif)
