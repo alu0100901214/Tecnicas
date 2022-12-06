@@ -63,6 +63,23 @@ private void AddCoinsToPool(int amount){
     }
 ```
 
--> la función RequestCoin() busca en la lista la primera instancia que no este activa y la devuelve, en caso de no encontrar ninguna, se agrega una nueva instancia a la lista aumentando su tamaño ( en el GIF se puede apreciar que cuando el jugador se aleja, se requieren mas instancias de la moneda y se agregan al pool ).
+-> la función RequestCoin() busca en la lista la primera instancia que no este activa y la devuelve, en caso de no encontrar ninguna, se agrega una nueva instancia a la lista aumentando su tamaño 
+
+```
+    public GameObject RequestCoin(){
+        for(int i = 0; i < coinList.Count; i++){
+            if(!coinList[i].activeSelf){
+                coinList[i].SetActive(true);
+                return coinList[i];
+            }
+        }
+        AddCoinsToPool(1);
+        coinList[coinList.Count - 1].SetActive(true);
+        return coinList[coinList.Count - 1];
+
+    }
+```
+
+( en el GIF se puede apreciar que cuando el jugador se aleja, se requieren mas instancias de la moneda y se agregan al pool )
 
 ![gif](./GIF/pool.gif)
