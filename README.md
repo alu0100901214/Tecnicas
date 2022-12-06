@@ -46,6 +46,23 @@ Nota: En el código aparece la velocidad de scroll en el eje Y, pero no la usamo
 
 ## Utilizar la técnica de pool de objetos para ir creando elementos en el juego que el jugador irá recolectando.
 
--> 
+-> Para este apartado primero he creado un prefab de una moneda que se va a mover hacia la izquierda cuando SetActive es true y para cuando es false.
+
+-> Para realizar el pool, he creado un script que guarda una referencia al prefab de la moneda, una lista con las instancias de las monedas y un tamaño para el pool.
+
+-> La función AddCoinsToPool, instancia la cantidad de monedas pasados por parámetro, empezando desde el Start() con el tamaño definido en "poolSize".
+
+```
+private void AddCoinsToPool(int amount){
+    for (int i = 0; i < amount; i++) {
+            GameObject coin = Instantiate(coinObject);
+            coin.SetActive(false);
+            coinList.Add(coin);
+            coin.transform.parent = transform;
+        }
+    }
+```
+
+-> la función RequestCoin() busca en la lista la primera instancia que no este activa y la devuelve, en caso de no encontrar ninguna, se agrega una nueva instancia a la lista aumentando su tamaño ( en el GIF se puede apreciar que cuando el jugador se aleja, se requieren mas instancias de la moneda y se agregan al pool ).
 
 ![gif](./GIF/pool.gif)
