@@ -5,10 +5,25 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
 
+    public float speed = 5f;
+    private bool active = false;
+
+    private void OnEnable(){
+        active = true;
+    }
+
+    private void OnDisable() {
+        active = false;
+    }
+
+    private void Update(){
+        if(active)
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
+    }
+
     private void OnTriggerEnter2D(Collider2D other) {
-        print("hola");
         if(other.gameObject.tag == "Player"){
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         
     }
